@@ -1,18 +1,18 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        string number = to_string(x);
-        int fin = number.size() - 1;
-        bool answer = true;
+        int res = 0;
+        int number = x;
+        long long reversed_number = 0;
 
-        for (int i = 0; i<number.size()/2; i++) {
-            if (number[i] != number[fin]) {
-                answer = false;
-                break;
-            }
-            fin--;
+        if (x < 0) return false;
+
+        while (number != 0) {
+            res = number%10;
+            reversed_number = reversed_number * 10 + res;
+            number /= 10;
         }
 
-        return answer;
+        return x == reversed_number;
     }
 };
